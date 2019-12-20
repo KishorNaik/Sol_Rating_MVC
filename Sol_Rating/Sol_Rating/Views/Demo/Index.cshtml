@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model Sol_Rating.Models.ProductModel
+
+<h1>Index</h1>
+
+<form asp-controller="Demo" asp-action="OnSubmit">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <jQuery-Rating max-size="5" rating="Rating"></jQuery-Rating>
+            </div>
+            <div class="col-6">
+                 <h4>@Model.Rating</h4>
+            </div>
+        </div>
+        <div class="col-12">
+            <input id="btnSubmit" type="submit" class="btn btn-primary" value="Submit" />
+        </div>
+    </div>
+
+</form>
+
+

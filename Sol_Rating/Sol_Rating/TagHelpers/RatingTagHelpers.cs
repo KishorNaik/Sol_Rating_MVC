@@ -45,14 +45,8 @@ namespace Sol_Rating.TagHelpers
             //Contextualize the html helper
             (htmlHelper as IViewContextAware).Contextualize(ViewContext);
 
-            // Bind Html Attribute Data into Model
-            var ratingTagHelperModelObj = new RatingTagHelperModel()
-            {
-                Max = MaxSize,
-                Rating = Convert.ToInt32( Rating.Model)
-            };
-
-            var content = await htmlHelper?.PartialAsync("~/Views/Shared/_JqueryRatingPartialView.cshtml", ratingTagHelperModelObj);
+           
+            var content = await htmlHelper?.PartialAsync("~/TagHelpers/_JqueryRatingPartialView.cshtml", this);
 
             output.Content.SetHtmlContent(content);
 

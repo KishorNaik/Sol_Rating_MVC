@@ -29,7 +29,8 @@ namespace Sol_Rating.Controllers
         public IActionResult OnSubmit()
         {
             // using Model
-            // Note : Rating Property Name should be match with Rating Model Property which we defined in Rating Tag helper Model
+            // Note :get Rating Model using asp-for tag helper and name attribute in hidden value. 
+            //<input id="hidRatingServerValue" type="hidden" asp-for="@Model.Rating.Model" name="@Model.Rating.Name" />
             int ratingServerValue = Products.Rating;
 
             // Or We can extract data from using Request.Form

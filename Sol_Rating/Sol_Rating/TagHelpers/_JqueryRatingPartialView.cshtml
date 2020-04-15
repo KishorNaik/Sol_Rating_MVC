@@ -4,30 +4,29 @@
     https://github.com/gellerby/jquery-emoji-ratings
 *@
 
-@model Sol_Rating.TagHelpers.RatingTagHelperModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *,CaptureRenderTagHelper
 
 
+@model Sol_Rating.TagHelpers.RatingTagHelpers
 
 
 <div class="starrr">
 </div>
 <div id="divRatingValue"></div>
-<input id="hidRatingServerValue"  type="hidden" asp-for="Rating" />
+<input id="hidRatingServerValue" type="hidden" asp-for="@Model.Rating.Model" name="@Model.Rating.Name" />
 <input id="hidRatingClientValue" name="hidRatingClientValue" type="hidden" />
 
 
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="https://kit.fontawesome.com/31153e9135.js" crossorigin="anonymous"></script>
-<script src="~/lib/Rating/starrr.js"></script>
 
-<script type="text/javascript">
+<script type="text/javascript" capture="ImplementStarrrJs">
 
         // get Font Size
-        let serverMaxSize = '@Html.Raw(Model.Max)';
+        let serverMaxSize = '@Html.Raw(Model.MaxSize)';
         console.log(serverMaxSize);
 
         // get Count
-        let serverRating = '@Html.Raw(Model.Rating)';
+        let serverRating = '@Html.Raw(Model.Rating.Model)';
         console.log(serverRating);
 
         $('.starrr').starrr({

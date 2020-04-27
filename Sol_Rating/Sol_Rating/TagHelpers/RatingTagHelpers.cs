@@ -15,6 +15,7 @@ namespace Sol_Rating.TagHelpers
         #region Declaration
         private const string MaxAttributeName = "max-size";
         private const String RatingAttributeName = "rating";
+        private const string OnChangeEventAttributeName = "onchange-event";
 
         private readonly IHtmlHelper htmlHelper = null;
         #endregion
@@ -32,6 +33,9 @@ namespace Sol_Rating.TagHelpers
 
         [HtmlAttributeName(RatingAttributeName)]
         public ModelExpression Rating { get; set; }
+
+        [HtmlAttributeName(OnChangeEventAttributeName)]
+        public String OnChangeEvent { get; set; }
 
         [HtmlAttributeNotBound]
         [ViewContext]

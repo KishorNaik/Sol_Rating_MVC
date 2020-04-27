@@ -29,6 +29,10 @@
         let serverRating = '@Html.Raw(Model.Rating.Model)';
         console.log(serverRating);
 
+        //get Method Name
+    let onChangeEventMethodName = '@Html.Raw(Model.OnChangeEvent)';
+    console.log(onChangeEventMethodName);
+
         $('.starrr').starrr({
             rating: serverRating,
             max: serverMaxSize,
@@ -40,6 +44,9 @@
 
 
                 $("#divRatingValue").html(`Rating value : ${value}`);
+
+                // Call dynamic Method by Name
+                window[onChangeEventMethodName](value); // Rating Value
 
              }
         });
